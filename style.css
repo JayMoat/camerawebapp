@@ -11,19 +11,11 @@ html, body{
     width: 100%:
     object-fit: cover;
 }
-
-#camera, #camera--view, #camera--sensor, #camera--output{
-    position: fixed;
-    height: 100%;
-    width: 100%:
-    object-fit: cover;
+#camera--view, #camera--sensor, #camera--output{
+    transform: scaleX(-1);
+    filter: FlipH;
 }
 
-#camera, #camera--view, #camera--sensor, #camera--output{
-    position: fixed;
-    height: 100%;
-    width: 100%:
-    object-fit: cover;
 }
 
 .taken{
