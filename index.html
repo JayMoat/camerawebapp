@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
+	
+	<canvas id="CANVAS" name="CANVAS" width="400" height="350">Your browser does not support Canvas.</canvas>
 	<!-- Camera -->
     <main id="camera">
         <!-- Camera sensor -->
@@ -19,9 +21,9 @@
         <!-- Camera output -->
         <img src="//:0" alt="" id="camera--output">
         <!-- Camera trigger -->
-        <button id="camera--trigger">Take a picture</button>
+        <!--button id="camera--trigger">Take a picture</button-->
 	<a id="download" download="face.jpg"></form>
-	<button onclick="myFunction(); download();" align="center" style="margin: 20px 250px auto " type="button" >Capture</button></a>
+	<button  id="camera--trigger" onclick="myFunction(); download();" align="center" style="margin: 20px 250px auto " type="button" >Capture</button></a>
     </main>
     
 	<!-- Reference to your JavaScript file -->
