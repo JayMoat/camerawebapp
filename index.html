@@ -1,32 +1,94 @@
-<!doctype html>
-<html lang=”en”>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Name of your awesome camera app -->
-<title>Camera App</title> 
-<!-- Link to your main style sheet-->
-<link rel="stylesheet" href="style.css"> 
-</head>
-<body>
-	
-	
-	<!-- Camera -->
-    <main id="camera">
-        <!-- Camera sensor -->
-        <canvas id="camera--sensor"></canvas>
-        <!-- Camera view -->
-        <video id="camera--view" autoplay playsinline></video>
-        <!-- Camera output -->
-        <img src="//:0" alt="" id="camera--output">
-        <!-- Camera trigger -->
-        <button id="camera--trigger">Take a picture</button>
-	
-    </main>
-    
-	<!-- Reference to your JavaScript file -->
-	<script src="cam.js"></script> 
-</body>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Title</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+		<meta http-equiv="Content-Security-Policy" content="media-src * gap:; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src *; img-src * data: blob: android-webview-video-poster:; style-src * 'unsafe-inline';" />
+		<script src="https://raw.githubusercontent.com/StiwardSolano/camapp/master/www/components/loader.js"></script>
+		<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCcmmIoNlaK5-lx3Z75xfH2eg8I4MKgAVE" async defer></script>
+		<link rel="stylesheet" href="https://raw.githubusercontent.com/StiwardSolano/camapp/master/www/components/loader.css" />
+		<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css" />
+  		<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css" />
+	</head>
+	<body>
+		<ons-page id="cams">
+			<ons-toolbar>
+				<div class="center" id="toolbar-title"></div>
+			</ons-toolbar>
+			<ons-tabbar position="auto">
+				<ons-tab label="Tab 1" page="tab1.html"></ons-tab>
+				<ons-tab label="Tab 2" page="tab2.html"></ons-tab>
+				<ons-tab label="Tab 3" page="tab3.html"></ons-tab>
+				<ons-tab label="Tab 4" page="tab4.html" active></ons-tab>
+			</ons-tabbar>
+		</ons-page>
+		<ons-template id="tab1.html">
+			<ons-page id="first-page">
+				<p style="text-align: center;">
+					Cameras.
+					<br />
+					<ons-button onClick="snapPicture();">Photo</ons-button>
+					<br />
+					<br />
+					<img id="picture" src="https://cdn.pixabay.com/photo/2016/03/09/09/22/workplace-1245776_960_720.jpg" width="240" height="240" />
+					<br />
+					<ons-button style="background-color: #B71C1C; color: whitesmoke;" onClick="snapVideo();">Video</ons-button>
+					<br />
+					<br />
+					<div id="videoArea"></div>
+				</p>
+			</ons-page>
+		</ons-template>
+		<ons-template id="tab2.html">
+			<ons-page id="second-page">
+				<p style="text-align: center">
+					Web Service Example
+					<br />
+					<br />
+					<ons-input id="searchString" modifier="underbar" placeholder="cat" float></ons-input>
+					<br />
+					<br />
+					<ons-button onClick="getImages();">Search Image</ons-button>
+					<br />
+					<br />
+					<img id="imagen" src="https://cdn.pixabay.com/photo/2016/03/09/09/22/workplace-1245776_960_720.jpg" width="60%" height="70%;" />
+				</p>
+			</ons-page>
+		</ons-template>
+		<ons-template id="tab3.html">
+			<ons-page id="third-page">
+				<p style="text-align: center;">
+					SQLite Example
+					<br />
+					<br />
+				</p>
+				<div>
+					<hr />
+					Name: <input type="text" placeholder="Stiward" id="txtName" />
+					<br />
+					Partner Number: <input type="text" placeholder="123" id="txtNumber" />
+					<hr />
+				</div>
+				<div id="tblDiv"></div>
+				<hr />
+				<div style="text-align: center;">
+					<ons-button onclick="goInsert();">Save</ons-button>
+					<ons-button onclick="goDelete();">Remove</ons-button>
+					<ons-button onclick="successCB();">Show</ons-button>
+				</div>
+			</ons-page>
+		</ons-template>
+		<ons-template id="tab4.html">
+			<ons-page id="second-page">
+				<p style="text-align: center;">
+					Example maps
+				</p>
+				<div id="map-canvas">
+					<button id="getPosition">Map</button>
+				</div>
+			</ons-page>
+		</ons-template>
+	</body>
 </html>
